@@ -108,7 +108,7 @@ nav li a:hover{
     						<td><c:out value="${part.gender }"/></td>
     						<td><c:out value="${part.location }"/></td>
     						<td><c:out value="${part.phone }"/></td>
-    						<td><c:out value="${part.batch_id }"/>
+    						<td><c:out value="${part.batch_id}"/>
 							</td>
     						<td><a class="btn btn-success" style="background-color:#36455F"href="edit?id=<c:out value='${part.id}'/>" >Edit</a>
     						&nbsp;&nbsp;&nbsp;&nbsp;

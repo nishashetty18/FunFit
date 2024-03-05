@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+    <%@ page import="connection.DbConnection"  %>
+    <%@ page import="java.sql.Connection" %>
+     <%@ page import="java.sql.ResultSet" %>
+     <%@ page import="java.sql.Statement" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -129,14 +133,36 @@ nav li a:hover{
   					<br>
   				<fieldset class="form-group">
 	  				<label>Phone</label>
-	  				<input type="text" value="<c:out value="${part.phone }" />" class="form-control" name="phone" required="required">
+	  				<input type="text" value="<c:out value='${part.phone}' />" class="form-control" name="phone" id="phone" required="required" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number">
+                <small class="text-muted">Enter a 10-digit phone number (numeric characters only)</small>
   				</fieldset>
-  					<br>
-  				<fieldset class="form-group">
-	  				<label>Batch Id</label>
-	  				<input type="number" value="<c:out value="${part.batch_id}" />" class="form-control" name="batch_id" required="required">
-  				</fieldset>
-  					<br>
+  					<br><div class="form-group">
+	  				<label for="batch_id">Batch Name</label>
+	  				<select class="form-select" id="batch_id" name="batch_id" required>
+	  					<option value="">Select batch name</option>
+	  					<% try{
+	  							Connection conn=DbConnection.getConnection();
+	  							Statement stmt=conn.createStatement();
+	  							ResultSet rs=stmt.executeQuery("select id,name from batches");
+	  							while(rs.next()){
+	  								int batch_id=rs.getInt("id");
+	  								String name=rs.getString("name");
+	  							
+	  						%>
+	  						<option value="<%=batch_id%>"><%=name %></option>
+	  						<% 
+	  						}
+	  						conn.close();
+	  						}catch(Exception e){
+	  							e.printStackTrace();
+	  						}
+	  					%>
+	  					
+	  					
+	  				</select>
+	  				
+  				</div>
+  				<br>
   				<button style="text-align:center;" type="submit" class="btn btn-success">Save</button>
   			
   				

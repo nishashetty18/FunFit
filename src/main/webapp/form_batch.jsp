@@ -69,7 +69,7 @@ nav li a:hover{
         </ul>
     </nav>
     </header>
-    <div class="container-fluid"></div>
+    <div class="container-fluid">
     <br />
     <br />
     <br />
@@ -136,5 +136,6 @@ nav li a:hover{
   <%if (session.getAttribute("username")==null){
     	response.sendRedirect("login.jsp");}
     	%>
+    	</div>
 </body>
 </html>

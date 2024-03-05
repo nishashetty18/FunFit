@@ -108,7 +108,7 @@ nav li a:hover{
     					
     						<td><a class="btn btn-success" style="background-color:#36455F"href="edit2?id=<c:out value='${bch.id}'/>" >Edit</a>
     						&nbsp;&nbsp;&nbsp;&nbsp;
-    						<a class="btn btn-danger"href="delete2?id=<c:out value='${bch.id}'/>" >Delete</a></td>
+    						<a class="btn btn-danger" href="delete2?id=<c:out value='${bch.id}'/>" >Delete</a></td>
     					</tr>
     				</c:forEach>
     			</tbody>

@@ -18,7 +18,7 @@ import Models.Participants;
 public class BatchesDao {
 	private String jdbcUrl="jdbc:mysql://localhost:3306/funfitmodel?useSSL=false";
 	private String jdbcUsername="root";
-	private String jdbcPassword="32660@Ua32660@Ua";
+	private String jdbcPassword=;
 	private String jdbcDriver="com.mysql.cj.jdbc.Driver";
 	
 	private static final String insert_batches="Insert into batches(name, time, instructor) values (?,?,?);";
